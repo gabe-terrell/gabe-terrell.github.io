@@ -1,0 +1,14 @@
+body {
+	font-family: "Century Gothic";
+	background-color: CornflowerBlue;
+}
+
+.fancy {
+	font-weight: bold;
+	font-family: Palatino;
+	font-size: 52px;
+}
+
+.center {
+    text-align: center;
+}
