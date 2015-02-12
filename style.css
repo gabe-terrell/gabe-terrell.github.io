@@ -3,6 +3,10 @@ body {
 	background-color: CornflowerBlue;
 }
 
+.bold {
+	font-weight: bold;
+}
+
 .fancy {
 	font-weight: bold;
 	font-family: Palatino;
