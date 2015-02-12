@@ -3,14 +3,40 @@ body {
 	background-color: CornflowerBlue;
 }
 
+p {
+	padding-left: 4%;
+	margin: 0;
+}
+
+ul {
+	padding-left: 4%;
+}
+
+li {
+	padding-left: 4%;
+	list-style-position: inside;
+}
+
+.leftoffset {
+	padding-left: 2.5%;
+}
+
 .bold {
 	font-weight: bold;
+}
+
+.italics {
+	font-style: italic;
 }
 
 .fancy {
 	font-weight: bold;
 	font-family: Palatino;
 	font-size: 52px;
+}
+
+.smaller {
+	font-size: 36px;
 }
 
 .center {
