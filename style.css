@@ -6,7 +6,7 @@ body {
 p {
 	padding-left: 4%;
 	padding-right: 4%;
-	margin: 0;
+	margin: 0px;
 }
 
 ul {
@@ -21,7 +21,7 @@ li {
 }
 
 .bio {
-	margin: 5;
+	margin: 5px;
 	margin-top: 0em;
   	margin-bottom: 2em;
   	padding-right: 4%;
