@@ -5,16 +5,26 @@ body {
 
 p {
 	padding-left: 4%;
+	padding-right: 4%;
 	margin: 0;
 }
 
 ul {
 	padding-left: 4%;
+	padding-right: 4%;
 }
 
 li {
 	padding-left: 4%;
+	padding-right: 4%;
 	list-style-position: inside;
+}
+
+.bio {
+	margin: 5;
+	margin-top: 0em;
+  	margin-bottom: 2em;
+  	padding-right: 4%;
 }
 
 span.box {
@@ -25,6 +35,10 @@ span.box {
 
 .leftoffset {
 	padding-left: 2.5%;
+}
+
+.noextra {
+	padding-left: 0%;
 }
 
 .bold {
@@ -43,6 +57,10 @@ span.box {
 
 .smaller {
 	font-size: 36px;
+}
+
+.tiny {
+	font-size: 10px;
 }
 
 .center {
