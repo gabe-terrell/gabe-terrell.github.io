@@ -18,7 +18,7 @@ class Graph {
     Point[] points;
     float angle;
     float spacing;
-    float delta = TWO_PI / 500.0;
+    float delta = 0;
     int[] gaps;
 
     Graph (float x, float y) {
@@ -37,16 +37,19 @@ class Graph {
     }
 
     void placePoints() {
+        delta = (pmouseY - mouseY) / 500.0;
+        angle = (angle + delta) % TWO_PI;
         for (int i = 0; i < points.length; ++i) {
-            points[i] = new Point(center.x + radius * cos(angle), center.y + radius * sin(angle));
+            float x = center.x + radius * cos(angle);
+            float y = center.y + radius * sin(angle);
+            points[i] = new Point(x, y);
             angle = (angle + spacing) % TWO_PI;
         }
-        angle = (angle + delta) % TWO_PI;
     }
 
     void connectPoints (int gap) {
         int startingPoint = 0;
-        int remainingConnections = points.length - 1;
+        int remainingConnections = points.length;
         
         while (remainingConnections > 0) {
             int currentPoint = startingPoint;
