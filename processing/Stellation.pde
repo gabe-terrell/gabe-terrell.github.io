@@ -12,7 +12,7 @@ class Point {
     }
 }
 
-class Graph {
+class Stellation {
     Point center;
     float radius;
     Point[] points;
@@ -21,7 +21,7 @@ class Graph {
     float delta = 0;
     int[] gaps;
 
-    Graph (float x, float y) {
+    Stellation (float x, float y) {
         center = new Point(x, y);
         radius = random(100, 200);
         int numPoints = floor(random(15, 26));
@@ -67,7 +67,7 @@ class Graph {
         }
     }
 
-    void drawGraph() {
+    void drawStellation() {
         placePoints();
         for (int i = 0; i < gaps.length; ++i) {
             connectPoints(gaps[i]);
