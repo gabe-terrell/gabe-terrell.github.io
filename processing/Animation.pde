@@ -90,3 +90,15 @@ class AnimationQueue extends Animation {
 		finished = new ArrayList<Animation>();
 	}
 }
+
+class AnimationBatch extends AnimationQueue {
+	void animateFrame() {
+		for (Animation animation : queue) {
+			animation.animate()
+			if (animation.finished) {
+				finished.add(animation);
+				queue.remove(animation);
+			}
+		}
+	}
+}
