@@ -55,7 +55,7 @@ class Stellation {
             int currentPoint = startingPoint;
             int nextPoint = -1;
 
-            while (remainingConnections > 0 && nextPoint != startingPoint) {
+            while (nextPoint != startingPoint) {
                 nextPoint = (currentPoint + gap) % points.length;
                 points[currentPoint].connect(points[nextPoint]);
 
