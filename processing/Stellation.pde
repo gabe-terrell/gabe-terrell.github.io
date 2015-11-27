@@ -2,13 +2,29 @@ class Point {
     float x;
     float y;
 
-    Point(float _x, float _y) {
+    Point (float _x, float _y) {
         x = _x;
         y = _y;
     }
 
-    void connect(Point p) {
+    void connect (Point p) {
         line(x, y, p.x, p.y);
+    }
+
+    void draw() {
+        point(x, y);
+    }
+
+    Point lerp (Point p1, Point p2, float pct) {
+        if (pct <= 0.0) {
+            return p1;
+        }
+        if (pct >= 1.0) {
+            return p2;
+        }
+        float x = lerp(p1.x, p2.x, pct);
+        float y = lerp(p1.y, p2.y, pct);
+        return new Point(x, y);
     }
 }
 

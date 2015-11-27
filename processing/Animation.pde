@@ -5,7 +5,7 @@ class Animation {
 
 	Animation (int frames) {
 		frame = 0;
-		totalFrames = frames;
+		totalFrames = frames - 1;
 		finished = false;
 	}
 
@@ -28,7 +28,7 @@ class Animation {
 	}
 
 	boolean finishedAnimation() {
-		return frame == totalFrames;
+		return frame > totalFrames;
 	}
 
 	void resetAnimation() {
@@ -85,7 +85,7 @@ class AnimationQueue extends Animation {
 		for (Animation animation : queue) {
 			allAnimations.add(animation);
 		}
-		
+
 		queue = allAnimations;
 		finished = new ArrayList<Animation>();
 	}
