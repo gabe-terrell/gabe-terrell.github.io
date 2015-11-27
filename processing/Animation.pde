@@ -5,12 +5,12 @@ class Animation {
 
 	Animation (int frames) {
 		frame = 0;
-		totalFrames = frames - 1;
+		totalFrames = frames;
 		finished = false;
 	}
 
 	Animation () {
-		self(1);
+		this(1);
 	}
 
 	void animate() {
@@ -28,7 +28,7 @@ class Animation {
 	}
 
 	boolean finishedAnimation() {
-		return frame > totalFrames;
+		return frame > totalFrames + 1;
 	}
 
 	void resetAnimation() {
@@ -39,15 +39,15 @@ class Animation {
 
 class AnimationQueue extends Animation {
 	ArrayList<Animation> queue;
-	ArrayList<Animation> finished;
+	ArrayList<Animation> done;
 
 	AnimationQueue () {
 		queue = new ArrayList<Animation>();
-		finished = new ArrayList<Animation>();
+		done = new ArrayList<Animation>();
 	}
 
 	AnimationQueue (Animation[] animations) {
-		self();
+		this();
 		addAnimations(animations);
 	}
 
@@ -65,9 +65,9 @@ class AnimationQueue extends Animation {
 
 	void animateFrame() {
 		Animation animation = queue.get(0);
-		animation.animate()
+		animation.animate();
 		if (animation.finished) {
-			finished.add(animation);
+			done.add(animation);
 			queue.remove(0);
 		}
 	}
@@ -79,26 +79,35 @@ class AnimationQueue extends Animation {
 	void resetAnimation() {
 		ArrayList<Animation> allAnimations = new ArrayList<Animation>();
 
-		for (Animation animation : finished) {
+		for (Animation animation : done) {
+			animation.resetAnimation();
 			allAnimations.add(animation);
 		}
 		for (Animation animation : queue) {
+			animation.resetAnimation();
 			allAnimations.add(animation);
 		}
 
 		queue = allAnimations;
-		finished = new ArrayList<Animation>();
+		done = new ArrayList<Animation>();
+		finished = false;
 	}
 }
 
 class AnimationBatch extends AnimationQueue {
 	void animateFrame() {
+		ArrayList<Animation> finishedAnimations = new ArrayList<Animation>();
+
 		for (Animation animation : queue) {
-			animation.animate()
+			animation.animate();
 			if (animation.finished) {
-				finished.add(animation);
-				queue.remove(animation);
+				finishedAnimations.add(animation);
 			}
+		}
+
+		for (Animation animation : finishedAnimations) {
+			done.add(animation);
+			queue.remove(animation);
 		}
 	}
 }
